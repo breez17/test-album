@@ -1,0 +1,27 @@
+.Input input {
+  display: block;
+  width: 400px;
+  height: 30px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  border-left: 2px solid crimson;
+  border-bottom: none;
+  border-right: 2px solid crimson;
+  border-top: none;
+  background: none;
+  margin: 0 auto;
+  outline: none;
+  text-align: center; }
+
+label {
+  color: #ffffff; }
+
+span {
+  color: crimson;
+  font-size: .8rem;
+  font-weight: 700; }
+
+.Input.invalid label {
+  color: crimson; }
+
+/*# sourceMappingURL=Input.css.map */

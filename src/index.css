@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Sitka Text", sans-serif;
+}
+
+.page__container {
+  max-width: 1170px;
+  margin: 0 auto;
+}

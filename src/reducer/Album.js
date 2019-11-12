@@ -1,24 +1,31 @@
-import { Constants } from '../constants';
+
+import {
+    GET_ALBUMS_FAILURE,
+    GET_ALBUMS_REQUEST,
+    GET_ALBUMS_SUCCESS
+} from "../constants/albums";
 
 const initialState = {
     loading: false,
     albums: [],
 };
 
+
+
 export function mainState(state = initialState, action) {
     switch (action.type) {
-        case Constants.GET_REQUEST:
+        case GET_ALBUMS_REQUEST:
             return {
                 ...state,
                 loading: true,
             };
-        case Constants.GET_SUCCESS:
+        case GET_ALBUMS_SUCCESS:
             return {
                 ...state,
                 albums: action. albums,
                 loading: false,
             };
-        case Constants.GET_FAILURE:
+        case GET_ALBUMS_FAILURE:
             return {
                 ...state,
                 loading: false,

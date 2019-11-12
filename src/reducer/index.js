@@ -4,11 +4,11 @@ import auth from './Auth';
 import albums from './Album';
 import photos from "./Photo";
 
-const appState = combineReducers({
+const mainState = combineReducers({
     users,
     auth,
     albums,
     photos,
 });
 
-export default appState;
+export default mainState;

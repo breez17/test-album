@@ -6,6 +6,7 @@ import {Route} from 'react-router-dom'
 
 /*Stylesheet*/
 import './Home.css'
+import '../UI/Loader/Loader.css'
 
 
 class Index extends Component {

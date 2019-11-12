@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {userService} from "../../../services";
+import {photoService} from "../../../services/photosService";
 
 class Index extends Component {
 
     componentDidMount() {
-        userService.getUsers()
+        photoService.getPhotos()
             .then(data => {
                 console.log(data)
             })

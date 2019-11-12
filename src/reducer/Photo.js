@@ -1,5 +1,8 @@
-import { Constants } from '../constants';
-
+import {
+    GET_PHOTOS_START,
+    GET_PHOTOS_SUCCESS,
+    GET_PHOTOS_FAILURE
+} from '../constants/photos'
 const initialState = {
     loading: false,
     photos: [],
@@ -7,18 +10,18 @@ const initialState = {
 
 export function mainState(state = initialState, action) {
     switch (action.type) {
-        case Constants.GET_REQUEST:
+        case GET_PHOTOS_START:
             return {
                 ...state,
                 loading: true,
             };
-        case Constants.GET_SUCCESS:
+        case GET_PHOTOS_SUCCESS:
             return {
                 ...state,
                 photos: action.photos,
                 loading: false,
             };
-        case Constants.GET_FAILURE:
+        case   GET_PHOTOS_FAILURE:
             return {
                 ...state,
                 loading: false,

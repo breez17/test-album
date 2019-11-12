@@ -18,6 +18,8 @@
 .success:hover {
   background: #378c35;
   color: #ffffff;
+  content: '';
+  background-image: linear-gradient(to bottom, #ffffffAA, #FFFFFF11);
   box-shadow: 0 3px 20px #000000; }
 
 .custom {
@@ -28,6 +30,8 @@
 .custom:hover {
   background: orange;
   color: #ffffff;
-  box-shadow: 0 3px 20px #000000; }
+  box-shadow: 0 3px 20px #000000;
+  content: '';
+  background-image: linear-gradient(to bottom, #ffffffAA, #FFFFFF11); }
 
 /*# sourceMappingURL=Button.css.map */

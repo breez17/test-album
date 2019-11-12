@@ -11,6 +11,10 @@
   margin-top: 30px;
 }
 
+.Button:before {
+
+}
+
 .success {
   background: none;
   border: 1.5px solid #378c35;
@@ -20,7 +24,10 @@
 .success:hover {
   background: #378c35;
   color: #ffffff;
+  content: '';
+  background-image: linear-gradient(to bottom, #ffffffAA, #FFFFFF11);
   box-shadow: 0 3px 20px #000000;
+
 }
 
 .custom {
@@ -33,5 +40,7 @@
   background: orange;
   color: #ffffff;
   box-shadow: 0 3px 20px #000000;
+  content: '';
+  background-image: linear-gradient(to bottom, #ffffffAA, #FFFFFF11);
 }
 

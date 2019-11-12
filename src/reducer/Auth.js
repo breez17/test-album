@@ -1,8 +1,8 @@
-import {mainState} from "./index";
-
-mainState();
-
-import { Constants } from '../constants';
+import {
+    AUTH_SUCCESS,
+    AUTH_FAILURE,
+    AUTH_LOGOUT
+} from '../constants/auth'
 
 const initialState = {
     loading: false,
@@ -11,18 +11,18 @@ const initialState = {
 
 export function mainState(state = initialState, action) {
     switch (action.type) {
-        case Constants.GET_REQUEST:
+        case AUTH_LOGOUT:
             return {
                 ...state,
                 loading: true,
             };
-        case Constants.GET_SUCCESS:
+        case AUTH_SUCCESS:
             return {
                 ...state,
                 auth: action.auth,
                 loading: false,
             };
-        case Constants.GET_FAILURE:
+        case AUTH_FAILURE:
             return {
                 ...state,
                 loading: false,

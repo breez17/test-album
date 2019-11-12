@@ -1,4 +1,8 @@
-import { Constants } from '../constants';
+import {
+    GET_USERS_SUCCESS,
+    GET_USERS_START,
+    GET_USERS_FAILURE
+} from '../constants/users'
 
 const initialState = {
     loading: false,
@@ -7,18 +11,18 @@ const initialState = {
 
 export function mainState(state = initialState, action) {
     switch (action.type) {
-        case Constants.GET_REQUEST:
+        case GET_USERS_START:
             return {
                 ...state,
                 loading: true,
             };
-        case Constants.GET_SUCCESS:
+        case GET_USERS_SUCCESS:
             return {
                 ...state,
                 users: action.users,
                 loading: false,
             };
-        case Constants.GET_FAILURE:
+        case GET_USERS_FAILURE:
             return {
                 ...state,
                 loading: false,

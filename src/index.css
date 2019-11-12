@@ -8,3 +8,15 @@
   max-width: 1170px;
   margin: 0 auto;
 }
+
+.slick-dots {
+  display: none !important;
+}
+
+.slick-slide img {
+  margin: 0 auto;
+}
+
+.slick-slide {
+  margin-top: 13vh;
+}

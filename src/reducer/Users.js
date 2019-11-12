@@ -9,7 +9,7 @@ const initialState = {
     users: [],
 };
 
-export function mainState(state = initialState, action) {
+export function usersState(state = initialState, action) {
     switch (action.type) {
         case GET_USERS_START:
             return {

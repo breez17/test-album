@@ -12,7 +12,7 @@ const initialState = {
 
 
 
-export function mainState(state = initialState, action) {
+export function albumsState(state = initialState, action) {
     switch (action.type) {
         case GET_ALBUMS_REQUEST:
             return {

@@ -55,28 +55,36 @@ class Index extends Component {
             });
         this.setState({
             loading:false,
-        })
+        });
     }
 
     handleLogin = async () => {
-        // userService.getUsers((username, email) => {})
-        // userService.getUsers(authData)
         const authData = {
-                email: this.state.formControls.email.value,
-                login: this.state.formControls.login.value,
-
-            };
-            try {
-            const response = await axios.post('https://jsonplaceholder.typicode.com/users', authData);
-                console.log(response.data)
-            } catch (e) {
-                console.log(e)
-            }
+            email: this.state.formControls.email.value,
+            login: this.state.formControls.login.value,
         };
+        try {
+            const response = await axios.get(`https://jsonplaceholder.typicode.com/users?username=${authData.login}&email=${authData.email}`);
+            console.log(response.data);
+            localStorage.setItem('Verification', response.data[0].id + -1)
 
+        } catch (e) {
+            console.log(e)
+        }
+    };
 
     registerHandler = async () => {
+        const authData = {
+            email: this.state.formControls.email.value,
+            login: this.state.formControls.login.value,
 
+        };
+        try {
+            const response = await axios.post(`https://jsonplaceholder.typicode.com/users?username=${authData.login}&email=${authData.email}`);
+            console.log(response.id)
+        } catch (e) {
+            console.log(e)
+        }
     };
 
     submitHandler = (event) => {

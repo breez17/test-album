@@ -8,7 +8,7 @@ const initialState = {
     photos: [],
 };
 
-export function mainState(state = initialState, action) {
+export function photosState(state = initialState, action) {
     switch (action.type) {
         case GET_PHOTOS_START:
             return {

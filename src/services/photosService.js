@@ -4,9 +4,9 @@ export const photoService = {
     getPhotos,
 };
 
-function getPhotos() {
+function getPhotos(albumId) {
     const requestOptions = {
         method: 'GET',
     };
-    return fetch(`${process.env.REACT_APP_API_URL}photos`, requestOptions).then(apiHelper.handleResponse);
+    return fetch(`${process.env.REACT_APP_API_URL}photos?albumId=${albumId}`, requestOptions).then(apiHelper.handleResponse);
 }

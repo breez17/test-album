@@ -9,7 +9,7 @@ const initialState = {
     auth: [],
 };
 
-export function mainState(state = initialState, action) {
+export function authState(state = initialState, action) {
     switch (action.type) {
         case AUTH_LOGOUT:
             return {

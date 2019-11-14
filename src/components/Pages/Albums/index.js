@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {albumsService} from "../../../services/albumsService";
+import {albumsService} from "../../../data/services/albumsService";
 
 
 class Index extends Component {

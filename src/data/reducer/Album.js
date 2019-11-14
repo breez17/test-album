@@ -1,28 +1,29 @@
+
 import {
-    GET_USERS_SUCCESS,
-    GET_USERS_START,
-    GET_USERS_FAILURE
-} from '../constants/users'
+  albumsConstants
+} from "../constants/albums";
 
 const initialState = {
     loading: false,
-    users: [],
+    albums: [],
 };
 
-export function usersState(state = initialState, action) {
+
+
+export function albumsState(state = initialState, action) {
     switch (action.type) {
-        case GET_USERS_START:
+        case albumsConstants.GET_ALBUMS_REQUEST:
             return {
                 ...state,
                 loading: true,
             };
-        case GET_USERS_SUCCESS:
+        case albumsConstants.GET_ALBUMS_SUCCESS:
             return {
                 ...state,
-                users: action.users,
+                albums: action. albums,
                 loading: false,
             };
-        case GET_USERS_FAILURE:
+        case albumsConstants.GET_ALBUMS_FAILURE:
             return {
                 ...state,
                 loading: false,

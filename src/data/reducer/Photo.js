@@ -1,31 +1,25 @@
-
 import {
-    GET_ALBUMS_FAILURE,
-    GET_ALBUMS_REQUEST,
-    GET_ALBUMS_SUCCESS
-} from "../constants/albums";
-
+    photosConstants
+} from '../constants/photos'
 const initialState = {
     loading: false,
-    albums: [],
+    photos: [],
 };
 
-
-
-export function albumsState(state = initialState, action) {
+export function photosState(state = initialState, action) {
     switch (action.type) {
-        case GET_ALBUMS_REQUEST:
+        case photosConstants.GET_PHOTOS_START:
             return {
                 ...state,
                 loading: true,
             };
-        case GET_ALBUMS_SUCCESS:
+        case photosConstants.GET_PHOTOS_SUCCESS:
             return {
                 ...state,
-                albums: action. albums,
+                photos: action.photos,
                 loading: false,
             };
-        case GET_ALBUMS_FAILURE:
+        case   photosConstants.GET_PHOTOS_FAILURE:
             return {
                 ...state,
                 loading: false,

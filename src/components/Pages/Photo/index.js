@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {photoService} from "../../../services/photosService";
+import {photoService} from "../../../data/services/photosService";
 import Slider from "react-slick";
 
 

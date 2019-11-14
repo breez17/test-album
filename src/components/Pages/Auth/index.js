@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
-import {userService} from '../../../services';
-import Input from '../UI/Input/Input'
-import Button from "../UI/Button/Button";
+import {userService} from '../../../data/services/userService';
+import Input from '../../UI/Input/Input'
+import Button from "../../UI/Button/Button";
 import is from 'is_js'
 import axios from 'axios'
-import Loader from "../UI/Loader/Loader";
+import Loader from "../../UI/Loader/Loader";
 
 
 /*Stylesheet*/
 import './Auth.css'
+import {authActions} from "../../../data/actions";
+import {connect} from "react-redux";
 
 
 class Index extends Component {
 
 
-
     state = {
         isFormValid: false,
-        loading: true,
         formControls: {
             email: {
                 value: '',
@@ -49,39 +49,25 @@ class Index extends Component {
 
 
     componentDidMount() {
-        userService.getUsers()
-            .then(data => {
-                console.log(data)
-            });
-        this.setState({
-            loading:false,
-        });
+        // userService.logIn()
+        //     .then(data => {
+        //         console.log(data)
+        //     });
+        // this.setState({
+        //     loading:false,
+        // });
     }
 
-    handleLogin = async () => {
+
+    handleLogin = () => {
+        const {dispatch} = this.props;
         const authData = {
             email: this.state.formControls.email.value,
             login: this.state.formControls.login.value,
         };
         try {
-            const response = await axios.get(`https://jsonplaceholder.typicode.com/users?username=${authData.login}&email=${authData.email}`);
-            console.log(response.data);
-            localStorage.setItem('Verification', response.data[0].id + -1)
+            dispatch(authActions.login(authData.login, authData.email));
 
-        } catch (e) {
-            console.log(e)
-        }
-    };
-
-    registerHandler = async () => {
-        const authData = {
-            email: this.state.formControls.email.value,
-            login: this.state.formControls.login.value,
-
-        };
-        try {
-            const response = await axios.post(`https://jsonplaceholder.typicode.com/users?username=${authData.login}&email=${authData.email}`);
-            console.log(response.id)
         } catch (e) {
             console.log(e)
         }
@@ -156,18 +142,13 @@ class Index extends Component {
             <div className="page__container container">
                 <div className="wrapper-form">
                     {
-                        this.state.loading ? <Loader/> :
+                        this.props.loading ? <Loader/> :
                             <form className="actionForm" onSubmit={this.submitHandler}>
                                 {this.renderInputs()}
                                 <Button type="success"
                                         onClick={this.handleLogin}
                                         disabled={!this.state.isFormValid}
                                 >Вход</Button>
-                                <Button type="custom"
-                                        onClick={this.registerHandler}
-                                        disabled={!this.state.isFormValid}
-                                >Регистрация</Button>
-
                             </form>
                     }
 
@@ -177,4 +158,10 @@ class Index extends Component {
     }
 }
 
-export default Index;
+const mapStateToProps = ({authState}) => {
+    return {
+        loading: authState.loading
+    }
+};
+
+export default connect(mapStateToProps)(Index);

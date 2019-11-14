@@ -1,27 +1,27 @@
 import {
-    GET_PHOTOS_START,
-    GET_PHOTOS_SUCCESS,
-    GET_PHOTOS_FAILURE
-} from '../constants/photos'
+    usersConstants
+} from '../constants/users';
+
+
 const initialState = {
     loading: false,
-    photos: [],
+    users: [],
 };
 
-export function photosState(state = initialState, action) {
+export function usersState(state = initialState, action) {
     switch (action.type) {
-        case GET_PHOTOS_START:
+        case usersConstants.GET_USERS_START:
             return {
                 ...state,
                 loading: true,
             };
-        case GET_PHOTOS_SUCCESS:
+        case usersConstants.GET_USERS_SUCCESS:
             return {
                 ...state,
-                photos: action.photos,
+                users: action.users,
                 loading: false,
             };
-        case   GET_PHOTOS_FAILURE:
+        case usersConstants.GET_USERS_FAILURE:
             return {
                 ...state,
                 loading: false,

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import Auth from '../Auth'
 import Albums from '../Albums'
 import Photo from '../Photo'
-import {Route} from 'react-router-dom'
+import {Route, NavLink} from 'react-router-dom'
 
 /*Stylesheet*/
 import './Home.css'
@@ -16,10 +16,8 @@ class Index extends Component {
                 <header className="Home__header">
                     <nav className="Home__header-navigation">
                         <ul className="navigation__list">
-                            <li className="list-item"><a className="link-item" href="/home">Home</a></li>
-                            <li className="list-item"><a className="link-item" href="/auth">Authorization</a></li>
-                            <li className="list-item"><a className="link-item" href="/albums">Albums</a></li>
-                            <li className="list-item"><a className="link-item" href="/photo">Photo</a></li>
+                            <li className="list-item"><NavLink className="link-item" to="/auth">Authorization</NavLink></li>
+                            <li className="list-item"><NavLink className="link-item" to="/home">Home</NavLink></li>
                         </ul>
                     </nav>
                 </header>
@@ -27,7 +25,7 @@ class Index extends Component {
                     <div className="page__holder">
                         <Route
                             path="/home"
-                            render={() => <h1>Welcome!</h1>
+                            render={() => <h1 className="greeting">Welcome!</h1>
                             }
                         />
                         <Route
@@ -35,12 +33,13 @@ class Index extends Component {
                             component={Auth}
                         />
                         <Route
+                            exact
                             path="/albums"
                             component={Albums}
                         />
 
                         <Route
-                            path="/photo"
+                            path="/albums/:albumId"
                             component={Photo}
                         />
                     </div>

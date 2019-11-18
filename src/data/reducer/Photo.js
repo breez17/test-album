@@ -16,7 +16,12 @@ export function photosState(state = initialState, action) {
         case photosConstants.GET_PHOTOS_SUCCESS:
             return {
                 ...state,
-                photos: action.photos,
+                photos: [...action.photos.map(item => ({
+                    src: item.url,
+                    thumbnail: item.thumbnailUrl,
+                    thumbnailWidth: 30,
+                    thumbnailHeight: 15,
+                }))],
                 loading: false,
             };
         case   photosConstants.GET_PHOTOS_FAILURE:

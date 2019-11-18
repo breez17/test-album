@@ -11,7 +11,10 @@ function login(username, email) {
         dispatch(request());
         userService.logIn(username, email)
             .then(
-                auth => dispatch(success(auth)),
+                auth => {
+                    localStorage.setItem('Verification', auth[0].id);
+                    dispatch(success(auth))
+                },
                 error => dispatch(failure(error.toString())),
             );
     };

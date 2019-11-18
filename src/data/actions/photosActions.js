@@ -6,12 +6,14 @@ export const photosActions = {
 };
 
 
-function getPhotos() {
+function getPhotos(albumId) {
     return dispatch => {
         dispatch(request());
-        photoService.getPhotos()
+        photoService.getPhotos(albumId)
             .then(
-                photos => dispatch(success(photos)),
+                photos => {
+                    localStorage.setItem('getPhotos', photos[0].albumId);
+                    dispatch(success(photos))},
                 error => dispatch(failure(error.toString())),
             );
     };

@@ -1,31 +1,51 @@
 .Home__header {
   width: 100%;
+//background: linear-gradient(70deg, rgba(135, 28, 255, 0.66) 0%, rgba(82, 255, 81, 0.75) 30%, rgba(67, 255, 106, 0.8) 60%, rgba(135, 28, 255, 0.66) 100%);
   background: #424242;
-  border-bottom: 5px solid #919191; }
+  border-bottom: 5px solid #919191;
+}
 
 .page {
-  background: #b3fba0;
+  background-image: linear-gradient(rgba(0,0,0, .7), rgba(0,0,0, .7)),url("https://images.wallpaperscraft.com/image/cup_book_reading_114848_1920x1080.jpg");
+  background-size: 100%;
   width: 100%;
-  height: 100vh;
-  text-align: center; }
+  height: 2500px;
+  text-align: center;
+  color: #ffffff;
+  background-repeat: repeat-y, repeat-y;
+  background-position: left, right;
+  background-attachment: fixed, fixed;
+}
+
+.greeting {
+  margin-top: 40vh;
+  font-size: 5rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-shadow: 0px 80px 10px #fff;
+}
 
 .navigation__list {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1rem; }
+  padding: 1rem;
+}
 
 .list-item {
-  list-style: none; }
+  list-style: none;
+}
 
 .link-item {
   text-decoration: none;
   color: #fff;
   font-weight: 700;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 .link-item {
-  position: relative; }
+  position: relative;
+}
 
 .link-item::before, .link-item::after {
   content: '';
@@ -35,22 +55,25 @@
   width: 2px;
   background-color: #7232fc;
   transform: scaleY(0);
-  transition: transform 0.5s ease; }
+  transition: transform 0.5s ease;
+}
 
 .link-item::before {
   left: -8px;
-  transform-origin: center top; }
+  transform-origin: center top;
+}
 
 .link-item:hover::before {
   transform-origin: center bottom;
-  transform: scaleY(1); }
+  transform: scaleY(1);
+}
 
 .link-item::after {
   right: -8px;
-  transform-origin: center bottom; }
+  transform-origin: center bottom;
+}
 
 .link-item:hover::after {
   transform-origin: center top;
-  transform: scaleY(1); }
-
-/*# sourceMappingURL=Home.css.map */
+  transform: scaleY(1);
+}

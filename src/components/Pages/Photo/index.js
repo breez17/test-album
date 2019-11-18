@@ -1,48 +1,51 @@
 import React, {Component} from 'react';
-import {photoService} from "../../../data/services/photosService";
-import Slider from "react-slick";
-
+import {Link, withRouter} from 'react-router-dom';
+import {connect} from "react-redux";
+import Gallery from 'react-grid-gallery';
+import Button from "../../UI/Button/Button";
 
 /*Stylesheet*/
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import './Photo.css'
+import {photosActions} from "../../../data/actions";
+
 
 class Index extends Component {
     state = {
-        photos: []
+        images: []
     };
 
     componentDidMount() {
-        photoService.getPhotos(1)
-            .then(photos => {
-                this.setState({photos})
-            })
+        const {dispatch, match} = this.props;
+        dispatch(photosActions.getPhotos(match.params.albumId))
     }
 
 
     render() {
-        const settings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1
+        const {photos} = this.props;
+        const logOut = () => {
+          localStorage.clear();
         };
 
-        const photos = this.state.photos;
         return (
-            <Slider {...settings}>
-
-                    {[photos.map((item, key) => (
-                       <div> <img className="imgHolder__picture" key={key} src={item.url} alt=""/></div>
-                    ))]}
-
-            </Slider>
+            <div className="wrapper-photos">
+                <Gallery images={photos}/>
+                {document.getElementById('example-0')}
+                <Link to="/home"><Button type="custom" onClick={logOut}>logout</Button></Link>
+            </div>
         );
+
     }
 }
 
-export default Index;
+const mapStateToProps = ({photosState}) => {
+    return {
+        photos: photosState.photos,
+        loading: photosState.loading
+    }
+
+};
+
+export default withRouter(connect(mapStateToProps)(Index));

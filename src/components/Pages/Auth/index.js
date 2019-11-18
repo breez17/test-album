@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {userService} from '../../../data/services/userService';
 import Input from '../../UI/Input/Input'
 import Button from "../../UI/Button/Button";
 import is from 'is_js'
-import axios from 'axios'
 import Loader from "../../UI/Loader/Loader";
 
 
@@ -11,6 +9,7 @@ import Loader from "../../UI/Loader/Loader";
 import './Auth.css'
 import {authActions} from "../../../data/actions";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 
 
 class Index extends Component {
@@ -47,19 +46,7 @@ class Index extends Component {
         }
     };
 
-
-    componentDidMount() {
-        // userService.logIn()
-        //     .then(data => {
-        //         console.log(data)
-        //     });
-        // this.setState({
-        //     loading:false,
-        // });
-    }
-
-
-    handleLogin = () => {
+    handleLogin = async () => {
         const {dispatch} = this.props;
         const authData = {
             email: this.state.formControls.email.value,
@@ -138,6 +125,7 @@ class Index extends Component {
     }
 
     render() {
+
         return (
             <div className="page__container container">
                 <div className="wrapper-form">
@@ -145,10 +133,14 @@ class Index extends Component {
                         this.props.loading ? <Loader/> :
                             <form className="actionForm" onSubmit={this.submitHandler}>
                                 {this.renderInputs()}
-                                <Button type="success"
-                                        onClick={this.handleLogin}
-                                        disabled={!this.state.isFormValid}
-                                >Вход</Button>
+                             <Link to="/albums">  <Button
+                                    type={"success"}
+                                    onClick={this.handleLogin}
+                                    disabled={!this.state.isFormValid}>
+                                    Вход
+                                </Button></Link>
+                                <span>Sincere@april.biz</span>
+                                <span>Bret</span>
                             </form>
                     }
 

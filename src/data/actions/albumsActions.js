@@ -6,13 +6,15 @@ export const albumsActions = {
 };
 
 
-function getAlbums() {
+function getAlbums(userId) {
     return dispatch => {
         dispatch(request());
-        albumsService.getAlbums()
-            .then(
-                albums => dispatch(success(albums)),
-                error => dispatch(failure(error.toString())),
+        albumsService.getAlbums(userId)
+            .then(albums => {
+
+                dispatch(success(albums))
+            },
+            error => dispatch(failure(error.toString())),
             );
     };
 

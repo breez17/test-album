@@ -1,3 +1,26 @@
+.wrapper-albums {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    vertical-align: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 80%;
+    height: auto;
+}
 
+.tag-album {
+    color: #ffffff;
+    text-decoration: none;
+    width: 29%;
+    font-size: .8rem;
+    margin: 4% 4% 0 0;
+    border: 1px solid lightgray;
+    padding: 20px 20px;
+    transition: .3s all;
+}
 
-/*# sourceMappingURL=Albums.css.map */
+.tag-album:hover {
+    background: rgba(0,0,0, .4);
+    color: #378c35;
+}

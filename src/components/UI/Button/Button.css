@@ -25,6 +25,8 @@
 .custom {
   color: orange;
   background: none;
+  cursor: pointer;
+  width: 200px;
   border: 1.5px solid orange; }
 
 .custom:hover {
